@@ -20,14 +20,17 @@ const allowedOrigins = [
     process.env.FRONTEND_URL || "https://goal-tracker-sigma-dun.vercel.app",
     "http://localhost:5500"
 ];
-app.use(cors({
+
+const corsOptions = {
     origin: (origin, callback) => {
         if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
         callback(new Error("Not allowed by CORS"));
     },
     credentials: true
-}));
-app.options("*", cors());
+};
+
+app.options("*", cors(corsOptions));
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
