@@ -1,4 +1,4 @@
-﻿const API_BASE = "https://backend-46x0.onrender.com/api";
+﻿const API_BASE = "https://backend-46x0.onrender.com";
 const DEFAULT_API_TIMEOUT = 30000;
 const user = (() => {
     try {
