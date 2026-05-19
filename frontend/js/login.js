@@ -107,7 +107,7 @@ async function login() {
 
         setLoginDisabled(true);
 
-        const response = await fetch("http://localhost:5000/api/auth/login", {
+        const response = await fetch("https://backend-46x0.onrender.com/api/auth/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email, password }),
@@ -162,7 +162,7 @@ async function loginWithMicrosoft() {
             accessToken: microsoftResult.accessToken || null
         };
 
-        const response = await fetch("http://localhost:5000/api/auth/microsoft", {
+        const response = await fetch("https://backend-46x0.onrender.com/api/auth/microsoft", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(authPayload),
@@ -234,7 +234,7 @@ async function requestPasswordReset() {
         requestResetButton.disabled = true;
         if (window.AppUX) AppUX.setButtonLoading(requestResetButton, true, "Sending");
         else requestResetButton.innerHTML = `<span class="spinner-border spinner-border-sm me-2"></span>Sending...`;
-        const response = await fetch("http://localhost:5000/api/auth/forgot-password", {
+        const response = await fetch("https://backend-46x0.onrender.com/api/auth/forgot-password", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email }),

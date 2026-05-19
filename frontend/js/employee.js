@@ -1,7 +1,7 @@
 // Employee dashboard frontend
 // Uses Fetch API, Bootstrap modals, Chart.js
 
-const apiBase = 'http://localhost:5000/api';
+const apiBase = 'https://backend-46x0.onrender.com/api';
 let user = null;
 let employeeId = null;
 let goals = [];

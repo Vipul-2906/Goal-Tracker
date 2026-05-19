@@ -1,4 +1,4 @@
-﻿const API_BASE = "http://localhost:5000/api";
+﻿const API_BASE = "https://backend-46x0.onrender.com/api";
 const user = (() => {
     try {
         return JSON.parse(localStorage.getItem("user")) || JSON.parse(sessionStorage.getItem("user"));
