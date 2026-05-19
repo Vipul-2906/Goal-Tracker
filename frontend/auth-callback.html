@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Microsoft Auth Callback</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/@azure/msal-browser@2.39.0/lib/msal-browser.min.js"></script>
+    <script>
+        const msalClient = new msal.PublicClientApplication({
+            auth: {
+                clientId: "af43c128-84be-45ca-b209-915e37e0aa33",
+                authority: "https://login.microsoftonline.com/common",
+                redirectUri: "http://localhost:5500/frontend/auth-callback.html"
+            },
+            cache: {
+                cacheLocation: 'sessionStorage',
+                storeAuthStateInCookie: false
+            }
+        });
+
+        msalClient.handleRedirectPromise()
+            .finally(() => {
+                if (window.opener && !window.opener.closed) {
+                    window.close();
+                }
+            });
+    </script>
+</body>
+</html>

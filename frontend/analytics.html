@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics | Goal Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/unified-styles.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="admin.html">GoalTracker Analytics</a>
+            <div class="ms-auto d-flex gap-2">
+                <a class="btn btn-outline-light btn-sm" href="admin.html">Admin</a>
+                <button class="btn btn-outline-light btn-sm" id="logoutBtn">Logout</button>
+            </div>
+        </div>
+    </nav>
+    <main class="container-fluid py-4">
+        <div id="analyticsAlert"></div>
+        <section class="row g-3 mb-4" id="analyticsCards"></section>
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white"><h5 class="mb-0">Insight Summary</h5></div>
+            <div class="card-body" id="insightSummary">
+                <div class="text-muted">Loading insights...</div>
+            </div>
+        </section>
+        <section class="row g-3">
+            <div class="col-xl-6">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-white"><h5 class="mb-0">Quarter-on-Quarter Trends</h5></div>
+                    <div class="card-body"><canvas id="qoqChart"></canvas></div>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-white"><h5 class="mb-0">Goal Distribution by Status</h5></div>
+                    <div class="card-body"><canvas id="statusChart"></canvas></div>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-white"><h5 class="mb-0">Goals by Thrust Area</h5></div>
+                    <div class="card-body"><canvas id="thrustChart"></canvas></div>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-white"><h5 class="mb-0">UoM Distribution</h5></div>
+                    <div class="card-body"><canvas id="uomChart"></canvas></div>
+                </div>
+            </div>
+        </section>
+        <section class="card shadow-sm mt-4">
+            <div class="card-header bg-white"><h5 class="mb-0">Completion Heatmap</h5></div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead class="table-light"><tr><th>Department</th><th>Quarter</th><th>Updates</th><th>Completed</th><th>Manager Check-ins</th><th>Completion %</th></tr></thead>
+                        <tbody id="heatmapBody"><tr><td colspan="6" class="text-center text-muted py-4">Loading analytics...</td></tr></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="js/ux.js"></script>
+    <script src="js/analytics.js"></script>
+</body>
+</html>
